@@ -63,7 +63,7 @@ export default function OTPForm({ onNavigate, email }: OTPFormProps) {
       initial={{ x: 40, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.7, ease: 'easeOut' }}
-      className="w-full max-w-[420px]"
+      className="w-full max-w-[460px]"
     >
       <div className="login-card p-6 sm:p-8 lg:p-10">
         <div className="flex flex-col items-center mb-6">

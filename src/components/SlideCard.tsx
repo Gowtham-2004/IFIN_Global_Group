@@ -29,9 +29,7 @@ export default function SlideCard({ slide, isActive = false }: SlideCardProps) {
             {slide.description}
           </motion.p>
         )}
-        <div className="hidden sm:block">
-          <StatCards />
-        </div>
+        <StatCards />
       </motion.div>
     </div>
   )

@@ -57,7 +57,7 @@ export default function RequestAccessForm({ onNavigate }: AuthFormProps) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="w-full max-w-[420px] py-8"
+      className="w-full max-w-[460px] py-8"
     >
       <div className="login-card p-6 sm:p-8">
         <div className="flex flex-col items-center mb-5">
