@@ -12,7 +12,7 @@ export default function SuccessPage({ onNavigate }: AuthFormProps) {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="w-full max-w-[420px]"
     >
-      <div className="login-card p-10">
+      <div className="login-card p-6 sm:p-8 lg:p-10">
         <div className="flex flex-col items-center text-center">
           <Logo />
 

@@ -59,7 +59,7 @@ export default function RequestAccessForm({ onNavigate }: AuthFormProps) {
       transition={{ duration: 0.5, ease: 'easeOut' }}
       className="w-full max-w-[420px] py-8"
     >
-      <div className="login-card p-8">
+      <div className="login-card p-6 sm:p-8">
         <div className="flex flex-col items-center mb-5">
           <Logo />
           <h1 className="mt-5 text-2xl font-heading font-bold text-[#1F2937]">

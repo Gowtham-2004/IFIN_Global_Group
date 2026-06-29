@@ -65,7 +65,7 @@ export default function OTPForm({ onNavigate, email }: OTPFormProps) {
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className="w-full max-w-[420px]"
     >
-      <div className="login-card p-10">
+      <div className="login-card p-6 sm:p-8 lg:p-10">
         <div className="flex flex-col items-center mb-6">
           <Logo />
           <h1 className="mt-6 text-2xl font-heading font-bold text-[#1F2937]">
@@ -77,7 +77,7 @@ export default function OTPForm({ onNavigate, email }: OTPFormProps) {
           <p className="text-sm font-medium text-[#1F2937]">{email || 'your email'}</p>
         </div>
 
-        <div className="flex gap-3 justify-center mb-6">
+        <div className="flex gap-2 sm:gap-3 justify-center mb-6">
           {otp.map((digit, i) => (
             <input
               key={i}
@@ -88,7 +88,7 @@ export default function OTPForm({ onNavigate, email }: OTPFormProps) {
               value={digit}
               onChange={(e) => handleChange(i, e.target.value)}
               onKeyDown={(e) => handleKeyDown(i, e)}
-              className="w-12 h-14 text-center text-lg font-heading font-bold text-[#1F2937] bg-white border border-[#E5E7EB] rounded-[14px] outline-none transition-all duration-300 focus:border-brand focus:ring-2 focus:ring-brand/10"
+              className="w-10 h-12 sm:w-12 sm:h-14 text-center text-base sm:text-lg font-heading font-bold text-[#1F2937] bg-white border border-[#E5E7EB] rounded-[14px] outline-none transition-all duration-300 focus:border-brand focus:ring-2 focus:ring-brand/10"
               aria-label={`Digit ${i + 1}`}
             />
           ))}

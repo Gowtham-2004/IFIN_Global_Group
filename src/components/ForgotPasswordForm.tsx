@@ -32,7 +32,7 @@ export default function ForgotPasswordForm({ onNavigate, setEmail }: ForgotPassw
       transition={{ duration: 0.7, ease: 'easeOut' }}
       className="w-full max-w-[420px]"
     >
-      <div className="login-card p-10">
+      <div className="login-card p-6 sm:p-8 lg:p-10">
         <div className="flex flex-col items-center mb-6">
           <Logo />
           <h1 className="mt-6 text-2xl font-heading font-bold text-[#1F2937]">
