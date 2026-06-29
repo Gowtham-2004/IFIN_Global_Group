@@ -1,5 +1,3 @@
-import { type LucideIcon } from 'lucide-react'
-
 export interface Slide {
   id: number
   heading: string
@@ -13,23 +11,19 @@ export interface FormData {
   rememberMe: boolean
 }
 
-export interface InputFieldProps {
-  label: string
-  type: string
-  icon?: LucideIcon
-  value: string
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
-  error?: string
-  required?: boolean
-  name: string
-}
+export type AuthPage = 'login' | 'request-access' | 'forgot-password' | 'otp' | 'reset-password' | 'success'
 
 export interface ButtonProps {
   variant: 'primary' | 'secondary' | 'sso'
   children: React.ReactNode
   onClick?: () => void
   loading?: boolean
+  disabled?: boolean
   icon?: React.ReactNode
   fullWidth?: boolean
   type?: 'button' | 'submit' | 'reset'
+}
+
+export interface AuthFormProps {
+  onNavigate: (page: AuthPage) => void
 }

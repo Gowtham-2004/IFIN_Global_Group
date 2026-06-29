@@ -3,7 +3,6 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination } from 'swiper/modules'
 import { slides } from '../constants/slides'
 import SlideCard from './SlideCard'
-import ClientLogos from './ClientLogos'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -28,10 +27,6 @@ export default function HeroSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      <div className="absolute bottom-8 left-12 lg:left-16 xl:left-24 right-12 z-20">
-        <ClientLogos />
-      </div>
     </div>
   )
 }

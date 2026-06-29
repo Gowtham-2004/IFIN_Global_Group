@@ -4,7 +4,7 @@ import { User, Lock, Eye, EyeOff } from 'lucide-react'
 import Logo from './Logo'
 import InputField from './InputField'
 import Button from './Button'
-import { type FormData } from '../types'
+import { type FormData, type AuthFormProps } from '../types'
 
 const MicrosoftIcon = (
   <svg width="18" height="18" viewBox="0 0 24 24">
@@ -24,7 +24,7 @@ const GoogleIcon = (
   </svg>
 )
 
-export default function LoginForm() {
+export default function LoginForm({ onNavigate }: AuthFormProps) {
   const [formData, setFormData] = useState<FormData>({
     username: '',
     password: '',
@@ -67,12 +67,12 @@ export default function LoginForm() {
       className="w-full max-w-[420px]"
     >
       <div className="login-card p-10">
-        <div className="flex flex-col items-center mb-8">
+        <div className="flex flex-col items-center mb-6">
           <Logo showPortal />
-          <h1 className="mt-7 text-2xl font-heading font-bold text-[#1F2937]">
+          <h1 className="mt-6 text-2xl font-heading font-bold text-[#1F2937]">
             Welcome Back
           </h1>
-          <p className="mt-1.5 text-sm font-body text-[#6B7280]/70">
+          <p className="mt-1 text-sm font-body text-[#6B7280]/70">
             Sign in to continue
           </p>
         </div>
@@ -89,33 +89,32 @@ export default function LoginForm() {
             required
           />
 
-          <div className="relative">
-            <InputField
-              label="Password"
-              type={showPassword ? 'text' : 'password'}
-              name="password"
-              icon={Lock}
-              value={formData.password}
-              onChange={handleChange}
-              error={errors.password}
-              required
-            />
-            <button
-              type="button"
-              onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-4 top-1/2 -translate-y-1/2 text-[#6B7280]/40 hover:text-[#6B7280]/70 transition-colors"
-              aria-label={showPassword ? 'Hide password' : 'Show password'}
-              tabIndex={-1}
-            >
-              {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
-            </button>
-          </div>
+          <InputField
+            label="Password"
+            type={showPassword ? 'text' : 'password'}
+            name="password"
+            icon={Lock}
+            value={formData.password}
+            onChange={handleChange}
+            error={errors.password}
+            required
+            suffix={
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="flex items-center justify-center w-10 h-10 text-[#6B7280]/40 hover:text-brand/70 focus:text-brand/70 transition-colors rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-brand/20"
+                aria-label={showPassword ? 'Hide password' : 'Show password'}
+              >
+                {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+              </button>
+            }
+          />
 
           {loginError && (
             <motion.p
               initial={{ opacity: 0, y: -5 }}
               animate={{ opacity: 1, y: 0 }}
-              className="mb-4 text-sm text-red-500 font-body text-center"
+              className="mb-3 text-sm text-red-500 font-body text-center"
               role="alert"
             >
               {loginError}
@@ -135,13 +134,13 @@ export default function LoginForm() {
                 Remember me
               </span>
             </label>
-            <a
-              href="#"
+            <button
+              type="button"
+              onClick={() => onNavigate('forgot-password')}
               className="text-sm text-[#6B7280]/60 font-body hover:text-brand transition-colors"
-              onClick={(e) => e.preventDefault()}
             >
               Forgot Password?
-            </a>
+            </button>
           </div>
 
           <Button variant="primary" type="submit" loading={loading}>
@@ -149,7 +148,7 @@ export default function LoginForm() {
           </Button>
         </form>
 
-        <div className="relative my-6">
+        <div className="relative my-5">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-[#E5E7EB]" />
           </div>
@@ -168,9 +167,20 @@ export default function LoginForm() {
             Sign in with Google
           </Button>
         </div>
+
+        <p className="mt-5 text-center text-sm text-[#6B7280]/60 font-body">
+          Don't have an account?{' '}
+          <button
+            type="button"
+            onClick={() => onNavigate('request-access')}
+            className="text-brand hover:text-brand-hover font-medium transition-colors"
+          >
+            Request Access
+          </button>
+        </p>
       </div>
 
-      <p className="mt-6 text-center text-xs text-white/25 font-body">
+      <p className="mt-5 text-center text-xs text-white/25 font-body">
         &copy; {new Date().getFullYear()} IFIN Global Group. All rights reserved.
       </p>
     </motion.div>

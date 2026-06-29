@@ -1,5 +1,17 @@
-import { useState } from 'react'
-import { type InputFieldProps } from '../types'
+import { type LucideIcon } from 'lucide-react'
+
+interface InputFieldProps {
+  label: string
+  type: string
+  icon?: LucideIcon
+  value: string
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  error?: string
+  required?: boolean
+  name: string
+  placeholder?: string
+  suffix?: React.ReactNode
+}
 
 export default function InputField({
   label,
@@ -10,23 +22,27 @@ export default function InputField({
   error,
   required = false,
   name,
+  placeholder,
+  suffix,
 }: InputFieldProps) {
-  const [isFocused, setIsFocused] = useState(false)
-  const hasValue = value.length > 0
-  const isActive = isFocused || hasValue
-
   return (
-    <div className="relative mb-5">
+    <div className="mb-5">
+      <label
+        htmlFor={`field-${name}`}
+        className="block text-sm font-medium text-[#1F2937] mb-1.5"
+      >
+        {label}
+        {required && <span className="text-brand ml-0.5">*</span>}
+      </label>
       <div
         className={[
-          'relative flex items-center rounded-[14px] border transition-all duration-300 bg-white',
-          isFocused ? 'border-brand ring-2 ring-brand/10' : 'border-[#E5E7EB]',
-          error ? 'border-red-400 ring-2 ring-red-100' : '',
+          'flex items-center rounded-[14px] border transition-all duration-300 bg-white',
+          error ? 'border-red-400 ring-2 ring-red-100' : 'border-[#E5E7EB] focus-within:border-brand focus-within:ring-2 focus-within:ring-brand/10',
         ].join(' ')}
         style={{ height: '54px' }}
       >
         {Icon && (
-          <div className="pl-4 text-[#6B7280]/50 transition-colors duration-300">
+          <div className="pl-4 flex items-center justify-center text-[#6B7280]/50">
             <Icon size={18} />
           </div>
         )}
@@ -34,37 +50,28 @@ export default function InputField({
           type={type}
           name={name}
           value={value}
-          onChange={(e) => onChange(e)}
-          onFocus={() => setIsFocused(true)}
-          onBlur={() => setIsFocused(false)}
+          onChange={onChange}
           required={required}
           aria-label={label}
           aria-required={required}
           aria-invalid={!!error}
+          placeholder={placeholder || label}
+          id={`field-${name}`}
           className={[
             'w-full bg-transparent outline-none text-[#1F2937] text-sm font-body h-full',
-            'placeholder-transparent',
-            Icon ? 'px-3' : 'px-4',
+            Icon ? 'pl-3' : 'pl-4',
+            suffix ? 'pr-3' : 'pr-4',
+            'placeholder:text-[#6B7280]/40',
           ].join(' ')}
-          placeholder={label}
-          id={`field-${name}`}
         />
-        <label
-          htmlFor={`field-${name}`}
-          className={[
-            'absolute left-0 font-body text-sm transition-all duration-300 pointer-events-none select-none',
-            Icon ? 'pl-[42px]' : 'pl-4',
-            isActive
-              ? '-top-2.5 text-[11px] text-brand'
-              : 'top-1/2 -translate-y-1/2 text-[#6B7280]/50',
-          ].join(' ')}
-        >
-          {label}
-          {required && <span className="text-brand ml-0.5">*</span>}
-        </label>
+        {suffix && (
+          <div className="pr-2 flex items-center justify-center">
+            {suffix}
+          </div>
+        )}
       </div>
       {error && (
-        <p className="mt-1.5 text-xs text-red-500 font-body pl-1" role="alert">
+        <p className="mt-1 text-xs text-red-500 font-body" role="alert">
           {error}
         </p>
       )}

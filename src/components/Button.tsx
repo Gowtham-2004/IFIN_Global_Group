@@ -8,6 +8,7 @@ export default function Button({
   children,
   onClick,
   loading = false,
+  disabled = false,
   icon,
   fullWidth = true,
   type = 'button',
@@ -45,10 +46,10 @@ export default function Button({
     <motion.button
       type={type}
       onClick={handleClick}
-      disabled={loading}
-      className={`${base} ${variants[variant]} ${heights[variant]} ${fullWidth ? 'w-full' : ''} ${loading ? 'cursor-wait opacity-80' : ''}`}
-      whileHover={!loading ? { scale: 1.02 } : undefined}
-      whileTap={!loading ? { scale: 0.98 } : undefined}
+      disabled={disabled || loading}
+      className={`${base} ${variants[variant]} ${heights[variant]} ${fullWidth ? 'w-full' : ''} ${disabled || loading ? 'cursor-not-allowed opacity-60' : ''}`}
+      whileHover={!loading && !disabled ? { scale: 1.02 } : undefined}
+      whileTap={!loading && !disabled ? { scale: 0.98 } : undefined}
     >
       {loading ? (
         <Loader2 size={18} className="animate-spin" />
