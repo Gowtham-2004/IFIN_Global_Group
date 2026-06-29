@@ -13,76 +13,73 @@ const globeNodes = [
 
 export default function Globe() {
   return (
-    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-      <div className="relative flex items-center justify-center" style={{ transform: 'translateX(35%)' }}>
-        <div
-          className="absolute w-[600px] h-[600px] rounded-full"
-          style={{
-            background: 'radial-gradient(circle, rgba(247,148,29,0.35) 0%, rgba(247,148,29,0) 70%)',
-            opacity: 0.12,
-          }}
-        />
-        <motion.svg
-          viewBox="0 0 260 260"
-          className="w-[520px] h-[520px] opacity-20"
-          animate={{ rotate: 360 }}
-          transition={{ duration: 120, repeat: Infinity, ease: 'linear' }}
-        >
-          <circle
-            cx="130" cy="130" r="100"
-            fill="none"
-            stroke="rgba(247,148,29,0.6)"
+    <div className="relative flex items-center justify-center">
+      <div
+        className="absolute w-[min(85vh,1000px)] h-[min(85vh,1000px)] rounded-full"
+        style={{
+          background: 'radial-gradient(circle, rgba(247,148,29,0.055) 0%, rgba(247,148,29,0) 70%)',
+        }}
+      />
+      <motion.svg
+        viewBox="0 0 260 260"
+        className="w-[min(75vh,1000px)] h-[min(75vh,1000px)] opacity-25"
+        animate={{ rotate: 360 }}
+        transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
+      >
+        <circle
+          cx="130" cy="130" r="100"
+          fill="none"
+            stroke="rgba(247,148,29,0.65)"
             strokeWidth="1"
-          />
-          <ellipse
+        />
+        <ellipse
             cx="130" cy="130" rx="35" ry="100"
             fill="none"
-            stroke="rgba(247,148,29,0.35)"
+            stroke="rgba(247,148,29,0.25)"
             strokeWidth="0.6"
-          />
-          <ellipse
+        />
+        <ellipse
             cx="130" cy="130" rx="70" ry="100"
             fill="none"
-            stroke="rgba(247,148,29,0.35)"
+            stroke="rgba(247,148,29,0.25)"
             strokeWidth="0.6"
-          />
-          <ellipse
+        />
+        <ellipse
             cx="130" cy="130" rx="100" ry="28"
             fill="none"
-            stroke="rgba(247,148,29,0.35)"
+            stroke="rgba(247,148,29,0.25)"
             strokeWidth="0.6"
-          />
-          <ellipse
+        />
+        <ellipse
             cx="130" cy="130" rx="100" ry="60"
             fill="none"
-            stroke="rgba(247,148,29,0.35)"
+            stroke="rgba(247,148,29,0.25)"
             strokeWidth="0.6"
-          />
-          <ellipse
+        />
+        <ellipse
             cx="130" cy="130" rx="100" ry="88"
             fill="none"
-            stroke="rgba(247,148,29,0.2)"
+            stroke="rgba(247,148,29,0.23)"
             strokeWidth="0.4"
+        />
+        {globeNodes.map((node, i) => (
+          <motion.circle
+            key={i}
+            cx={node.cx}
+            cy={node.cy}
+            r={node.r}
+            fill="#F7941D"
+            initial={{ opacity: 0.25 }}
+            animate={{ opacity: [0.25, 0.7, 0.25] }}
+            transition={{
+              duration: 3,
+              delay: i * 0.4,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
           />
-          {globeNodes.map((node, i) => (
-            <motion.circle
-              key={i}
-              cx={node.cx}
-              cy={node.cy}
-              r={node.r}
-              fill="#F7941D"
-              initial={{ opacity: 0.3 }}
-              animate={{ opacity: [0.3, 0.8, 0.3] }}
-              transition={{
-                duration: 3,
-                delay: i * 0.4,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
-            />
-          ))}
-        </motion.svg>
-      </div>
+        ))}
+      </motion.svg>
     </div>
   )
 }

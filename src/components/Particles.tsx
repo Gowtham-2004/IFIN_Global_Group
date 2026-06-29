@@ -44,7 +44,7 @@ export default function Particles({ count = 25 }: { count?: number }) {
           animate={{
             x: [0, p.xMovement, 0],
             y: [0, p.yMovement, 0],
-            opacity: [0.1, 0.3, 0.1],
+            opacity: [0.12, 0.35, 0.12],
           }}
           transition={{
             duration: p.duration,

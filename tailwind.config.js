@@ -12,7 +12,7 @@ export default {
           hover: '#E67E00',
           light: '#FFF6EF',
         },
-        surface: '#0C1428',
+        surface: '#111B30',
         'surface-secondary': '#151E34',
         border: '#E5E7EB',
         accent: '#2563EB',

@@ -24,7 +24,7 @@ export default function SlideCard({ slide, isActive = false }: SlideCardProps) {
             initial={{ opacity: 0, y: 15 }}
             animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
             transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-            className="text-lg lg:text-xl text-white/70 font-body max-w-lg mb-10"
+            className="text-lg lg:text-xl text-white/[0.78] font-body max-w-lg mb-10"
           >
             {slide.description}
           </motion.p>

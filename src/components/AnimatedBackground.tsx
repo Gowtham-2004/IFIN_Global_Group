@@ -1,4 +1,3 @@
-import Globe from './Globe'
 import ConnectionLines from './ConnectionLines'
 import Particles from './Particles'
 
@@ -18,7 +17,6 @@ export default function AnimatedBackground() {
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
         <div className="w-[700px] h-[700px] rounded-full bg-brand/10 blur-[100px]" />
       </div>
-      <Globe />
       <ConnectionLines />
       <Particles />
       <div className="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/0 to-surface/60 pointer-events-none" />
