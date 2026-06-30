@@ -18,7 +18,7 @@ export default function AuthLayout({ children }: AuthLayoutProps) {
             <HeroSlider />
           </div>
         </div>
-        <div className="relative z-20 w-full lg:w-[35%] lg:min-h-screen max-lg:flex-1 flex items-center justify-center p-6 lg:p-8 max-lg:pb-12">
+        <div className="relative z-20 w-full lg:w-[35%] lg:min-h-screen max-lg:flex-1 flex items-center justify-center p-6 lg:p-8 max-lg:pb-12" data-layout="auth-panel">
           {children}
         </div>
       </div>

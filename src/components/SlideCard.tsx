@@ -16,7 +16,7 @@ export default function SlideCard({ slide, isActive = false }: SlideCardProps) {
         transition={{ duration: 0.6, ease: 'easeOut' }}
         className="relative z-10"
       >
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] font-heading font-bold text-white leading-[1.1] mb-6 max-w-3xl">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[56px] short:xl:text-5xl font-heading font-bold text-white leading-[1.1] mb-6 max-w-3xl">
           {slide.heading}
         </h2>
         {slide.description && (
@@ -24,7 +24,7 @@ export default function SlideCard({ slide, isActive = false }: SlideCardProps) {
             initial={{ opacity: 0, y: 15 }}
             animate={isActive ? { opacity: 1, y: 0 } : { opacity: 0, y: 15 }}
             transition={{ duration: 0.6, delay: 0.15, ease: 'easeOut' }}
-            className="text-sm sm:text-base md:text-lg lg:text-xl text-white/[0.78] font-body max-w-lg mb-6 sm:mb-8 md:mb-10"
+            className="text-sm sm:text-base md:text-lg lg:text-xl text-white/[0.78] font-body max-w-lg mb-6 sm:mb-8 md:mb-10 short:mb-4 short:md:mb-6"
           >
             {slide.description}
           </motion.p>

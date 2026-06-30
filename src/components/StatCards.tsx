@@ -10,7 +10,7 @@ const stats = [
 
 export default function StatCards() {
   return (
-    <div className="relative z-10 flex flex-wrap gap-3 mt-10 md:mt-14 max-sm:flex-nowrap max-sm:overflow-x-auto max-sm:scrollbar-none max-sm:-mx-6 max-sm:px-6 max-sm:gap-2">
+    <div className="relative z-10 flex flex-wrap gap-3 mt-10 md:mt-14 short:mt-6 short:md:mt-8 max-sm:flex-nowrap max-sm:overflow-x-auto max-sm:scrollbar-none max-sm:-mx-6 max-sm:px-6 max-sm:gap-2">
       {stats.map((stat, i) => {
         const Icon = stat.icon
         return (

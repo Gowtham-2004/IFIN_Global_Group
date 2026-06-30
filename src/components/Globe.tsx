@@ -15,14 +15,14 @@ export default function Globe() {
   return (
     <div className="relative flex items-center justify-center">
       <div
-        className="absolute w-[min(85vh,1000px)] h-[min(85vh,1000px)] max-md:w-[min(50vh,350px)] max-md:h-[min(50vh,350px)] rounded-full"
+        className="absolute w-[min(85vh,1000px)] h-[min(85vh,1000px)] max-md:w-[min(50vh,350px)] max-md:h-[min(50vh,350px)] rounded-full" data-globe="glow"
         style={{
           background: 'radial-gradient(circle, rgba(247,148,29,0.055) 0%, rgba(247,148,29,0) 70%)',
         }}
       />
       <motion.svg
         viewBox="0 0 260 260"
-        className="w-[min(75vh,1000px)] h-[min(75vh,1000px)] opacity-25 max-md:w-[min(40vh,300px)] max-md:h-[min(40vh,300px)] max-md:opacity-10"
+        className="w-[min(75vh,1000px)] h-[min(75vh,1000px)] opacity-25 max-md:w-[min(40vh,300px)] max-md:h-[min(40vh,300px)] max-md:opacity-[0.18] max-md:brightness-125"
         animate={{ rotate: 360 }}
         transition={{ duration: 35, repeat: Infinity, ease: 'linear' }}
       >

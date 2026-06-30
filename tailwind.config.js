@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        'short': { 'raw': '(max-height: 899px)' },
+        'xshort': { 'raw': '(max-height: 769px)' },
+      },
       colors: {
         brand: {
           DEFAULT: '#F7941D',
