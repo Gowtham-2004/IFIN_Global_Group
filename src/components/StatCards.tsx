@@ -10,7 +10,7 @@ const stats = [
 
 export default function StatCards() {
   return (
-    <div className="relative z-10 flex flex-wrap gap-3 mt-10 md:mt-14 short:mt-6 short:md:mt-8 max-sm:flex-nowrap max-sm:overflow-x-auto max-sm:scrollbar-none max-sm:-mx-6 max-sm:px-6 max-sm:gap-2">
+    <div className="relative z-10 mt-4 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:gap-3 md:mt-8 lg:mt-14 short:mt-4 short:md:mt-6">
       {stats.map((stat, i) => {
         const Icon = stat.icon
         return (
@@ -19,14 +19,14 @@ export default function StatCards() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 + i * 0.1, ease: 'easeOut' }}
-            className="stat-card px-4 py-3 flex items-center gap-3 max-sm:flex-none max-sm:px-3 max-sm:py-2 max-sm:gap-2"
+            className="stat-card flex min-w-0 items-center gap-2 px-3 py-2 sm:gap-3 sm:px-4 sm:py-3"
           >
-            <Icon size={18} className="text-brand/80 max-sm:size-4" />
-            <div className="flex flex-col">
-              <span className="text-white font-heading font-bold text-sm leading-tight max-sm:text-xs">
+            <Icon size={18} className="shrink-0 text-brand/80 max-sm:size-4" />
+            <div className="flex min-w-0 flex-col">
+              <span className="font-heading text-xs font-bold leading-tight text-white sm:text-sm">
                 {stat.value}
               </span>
-              <span className="text-white/50 font-body text-[11px] leading-tight max-sm:text-[10px]">
+              <span className="truncate font-body text-[10px] leading-tight text-white/50 sm:text-[11px]">
                 {stat.label}
               </span>
             </div>

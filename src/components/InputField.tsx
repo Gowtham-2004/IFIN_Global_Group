@@ -26,7 +26,7 @@ export default function InputField({
   suffix,
 }: InputFieldProps) {
   return (
-    <div className="mb-5">
+    <div className="mb-4 sm:mb-5">
       <label
         htmlFor={`field-${name}`}
         className="block text-sm font-medium text-[#1F2937] mb-1.5"
@@ -36,10 +36,10 @@ export default function InputField({
       </label>
       <div
         className={[
-          'flex items-center rounded-[14px] border transition-all duration-300 bg-white',
+          'flex min-w-0 items-center rounded-[14px] border transition-all duration-300 bg-white',
           error ? 'border-red-400 ring-2 ring-red-100' : 'border-[#E5E7EB] focus-within:border-brand focus-within:ring-2 focus-within:ring-brand/10',
         ].join(' ')}
-        style={{ height: '54px' }}
+        style={{ height: 'clamp(48px, 7svh, 54px)' }}
       >
         {Icon && (
           <div className="pl-4 flex items-center justify-center text-[#6B7280]/50">
@@ -58,7 +58,7 @@ export default function InputField({
           placeholder={placeholder || label}
           id={`field-${name}`}
           className={[
-            'w-full bg-transparent outline-none text-[#1F2937] text-sm font-body h-full',
+            'h-full w-full min-w-0 bg-transparent font-body text-sm text-[#1F2937] outline-none',
             Icon ? 'pl-3' : 'pl-4',
             suffix ? 'pr-3' : 'pr-4',
             'placeholder:text-[#6B7280]/40',

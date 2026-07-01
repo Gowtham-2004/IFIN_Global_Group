@@ -70,8 +70,8 @@
 
 @media (max-width: 1023px) {
   .swiper-pagination {
-    bottom: 60px !important;
-    left: 24px !important;
+    bottom: 18px !important;
+    left: 16px !important;
   }
   .swiper-pagination-bullet {
     width: 6px !important;
@@ -84,7 +84,7 @@
 
 @media (max-width: 639px) {
   .swiper-pagination {
-    bottom: 36px !important;
+    bottom: 14px !important;
     left: 16px !important;
   }
   .swiper-pagination-bullet {
@@ -114,6 +114,12 @@
   }
   .login-card {
     padding: 1.5rem !important;
+  }
+}
+
+@media (max-width: 639px), (max-height: 760px) {
+  .login-card {
+    border-radius: 20px;
   }
 }
 

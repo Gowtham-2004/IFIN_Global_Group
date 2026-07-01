@@ -57,7 +57,7 @@ export default function RequestAccessForm({ onNavigate }: AuthFormProps) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className="w-full max-w-[460px] py-8"
+      className="w-full max-w-[460px]"
     >
       <div className="login-card p-6 sm:p-8">
         <div className="flex flex-col items-center mb-5">
@@ -87,11 +87,11 @@ export default function RequestAccessForm({ onNavigate }: AuthFormProps) {
                 exit="exit"
                 transition={{ duration: 0.35, ease: 'easeInOut' }}
               >
-                <div className="flex gap-3">
-                  <div className="flex-1">
+                <div className="grid gap-0 sm:grid-cols-2 sm:gap-3">
+                  <div className="min-w-0">
                     <InputField label="First Name" type="text" name="firstName" icon={User} value={form.firstName} onChange={handleChange} required />
                   </div>
-                  <div className="flex-1">
+                  <div className="min-w-0">
                     <InputField label="Last Name" type="text" name="lastName" value={form.lastName} onChange={handleChange} required />
                   </div>
                 </div>
